@@ -1,28 +1,16 @@
-language: lisp
-
+language: common-lisp
 sudo: required
 
 env:
   matrix:
+    - LISP=sbcl-bin
+    - LISP=ccl-bin
     - LISP=abcl
-    - LISP=allegro
-    - LISP=sbcl
-    - LISP=sbcl32
-    - LISP=ccl
-    - LISP=ccl32
     - LISP=clisp
-    - LISP=clisp32
-    # - LISP=cmucl
     - LISP=ecl
 
-# matrix:
-#   allow_failures:
-#     - env: LISP=ecl
-
 install:
-  - curl -L https://github.com/luismbo/cl-travis/raw/master/install.sh | sh
+  - curl -L https://raw.githubusercontent.com/snmsts/roswell/release/scripts/install-for-ci.sh | sh
 
 script:
-  - cl -e '(ql:quickload :test-ci)
-           (unless (print (test-ci:foo))
-             (uiop:quit 1))'
+  - ros -e '(ql:quickload :test-ci) (unless (print (test-ci:foo)) (uiop:quit 1))'
