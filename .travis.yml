@@ -1,12 +1,15 @@
 language: common-lisp
 sudo: required
 
+os:
+  matrix:
+    - linux
+    - osx
+
 env:
   matrix:
     - LISP=sbcl-bin
     - LISP=ccl-bin
-    - LISP=abcl
-    - LISP=clisp
     - LISP=ecl
 
 install:
