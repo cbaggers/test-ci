@@ -2,9 +2,8 @@ language: common-lisp
 sudo: required
 
 os:
-  matrix:
-    - linux
-    - osx
+  - linux
+  - osx
 
 env:
   matrix:
