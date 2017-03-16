@@ -19,4 +19,4 @@ install:
   - curl -L https://raw.githubusercontent.com/snmsts/roswell/release/scripts/install-for-ci.sh | sh
 
 script:
-  - ros -e '(ql:quickload :sdl2) nil'
+  - ros -e '(asdf:load-system :sdl2 :force t :verbose t) nil'
